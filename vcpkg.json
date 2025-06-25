@@ -1,0 +1,10 @@
+{
+  "name": "pong-game-beta",
+  "version-string": "1.0.0",
+  "dependencies": [
+    "freeglut",
+    "opengl",
+    "glew",
+    "nlohmann-json"
+  ]
+}

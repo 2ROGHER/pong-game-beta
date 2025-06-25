@@ -404,3 +404,59 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+
+# Build folder
+/build/
+/out/
+/bin/
+/Debug/
+/Release/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+CMakeSettings.json
+cmake_install.cmake
+Makefile
+# MakeUserPresets.json
+# CMakePresets.json
+
+# Visual Studio
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+
+# vcpkg
+/vcpkg_installed/
+/vcpkg_buildtrees/
+/vcpkg_downloads/
+/packages/
+#/vcpkg*
+
+# Otros generados por VS
+*.VC.db
+*.VC.opendb
+*.ipch/
+*.obj
+*.log
+*.tlog
+*.pch
+*.pdb
+
+# Archivos temporales de sistema
+*.DS_Store
+Thumbs.db
+
+# Archivos de backup
+*~
+*.swp
+*.tmp
+*.bak
+
+# Carpetas comunes a ignorar
+/test/
+/.idea/
+/*.code-workspace
