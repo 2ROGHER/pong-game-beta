@@ -25,7 +25,23 @@ add_executable(pong ${SOURCES}
     "src/entities/Entity.h"
     "src/physics/Vector2D.h"
     "src/physics/Vector2D.cpp"
- "src/core/GameState.h" "src/core/Game.h" "src/scenes/IScene.h" "src/scenes/GameScene.h" "src/scenes/MenuScene.h" "src/scenes/SceneManager.h" "src/scenes/SceneManager.cpp" "src/core/LevelManager.h" "src/core/LevelManager.cpp" "src/core/Score.h" "src/utils/Timer.h" "src/utils/Timer.cpp" "src/utils/Label.h")
+ "src/core/GameState.h" "src/core/Game.h" "src/scenes/IScene.h" "src/scenes/GameScene.h" "src/scenes/MenuScene.h" "src/scenes/SceneManager.h" "src/scenes/SceneManager.cpp" "src/core/LevelManager.h" "src/core/LevelManager.cpp" "src/core/Score.h" "src/utils/Timer.h" "src/utils/Timer.cpp" "src/utils/Label.h" "src/scenes/GameOverScene.h" "src/scenes/GameOverScene.cpp")
+
+
+ 
+# IMPORTANTE: Copia el archivo config.json automáticamente después del build
+# Esto es importante para el funcionamiento de la aplicaci�n al cargar las configuraciones de archivos externos
+add_custom_command(TARGET pong POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:pong>/config"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${CMAKE_SOURCE_DIR}/config/config.json"
+        "$<TARGET_FILE_DIR:pong>/config/config.json"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${CMAKE_SOURCE_DIR}/config/levels.json"
+        "$<TARGET_FILE_DIR:pong>/config/levels.json"
+)
+
+
 
 # Enlaza GLUT si es necesario (CMake lo har� con vcpkg si est� bien instalado)
 find_package(freeglut CONFIG REQUIRED)

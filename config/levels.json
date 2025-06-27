@@ -1,0 +1,32 @@
+[
+  {
+    "level": 1,
+    "ballSpeedX": 200,
+    "ballSpeedY": 200,
+    "paddleSpeed": 180,
+    "scoreThreshold": 2,
+    "timeThreshold": 10,
+    "lives": 3,
+    "ballColors": [ "#FF0000" ]
+  },
+  {
+    "level": 2,
+    "ballSpeedX": 300,
+    "ballSpeedY": 300,
+    "paddleSpeed": 350,
+    "scoreThreshold": 4,
+    "timeThreshold": 15,
+    "lives": 6,
+    "ballColors": [ "#0000FF", "#00FF00", "#00FF00" ]
+  },
+  {
+    "level": 3,
+    "ballSpeedX": 350,
+    "ballSpeedY": 350,
+    "paddleSpeed": 400,
+    "scoreThreshold": 12,
+    "timeThreshold": 45,
+    "lives": 9,
+    "ballColors": [ "#FF0000", "#00FF00", "#0000FF", "#FF0000", "#00FF00", "#0000FF" ]
+  }
+]

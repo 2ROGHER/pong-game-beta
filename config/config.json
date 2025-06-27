@@ -1,0 +1,20 @@
+{
+  "window": {
+    "width": 800,
+    "height": 600
+  },
+  "paddle": {
+    "width": 40,
+    "height": 40,
+    "speed": 300,
+    "positionX": 50,
+    "positionY": 250
+  },
+  "ball": {
+    "speedX": 200,
+    "speedY": 150,
+    "positionX": 400,
+    "positionY": 300,
+    "radius": 10
+  }
+}

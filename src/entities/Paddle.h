@@ -24,8 +24,8 @@ using namespace std;
 const float DEFAULT_PADDLE_SPEED = 200.0f;
 const float PADDLE_SPEED_X= 200.0f; // Velocidad del paddle debe ser el mismo que el del Pelota (Paddle)
 const float PADDLE_SPEED_Y= 200.0f;
-const float DEFAULT_PADDLE_WIDTH = 10.0f;
-const float DEFAULT_PADDLE_HEIGHT = 80.0f;
+const float DEFAULT_PADDLE_WIDTH = 15.0f;
+const float DEFAULT_PADDLE_HEIGHT = 120.0f;
 const int DEFAULT_PADDLE_LIVES = 3;
 
 class Paddle : public Entity {
@@ -97,7 +97,7 @@ class Paddle : public Entity {
 		}
 
 		// Setters y getters para lives
-		void setLives(int lives) { lives_ = lives; } // Asigna la cantidad de vidas al Paddle
+		void setLives(int lives) { lives_ = lives_ + lives; }// Asigna la cantidad de vidas al Paddle
 
 		int getLives() { return lives_; } // Devuelve la cantidad de vidas que tiene el jugador
 

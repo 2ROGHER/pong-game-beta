@@ -1,7 +1,7 @@
 #include "SceneManager.h"
 #include "IScene.h"
 #include <iostream>
-
+#include "../core/LevelManager.h"
 #include "MenuScene.h";
 
 using namespace std;
@@ -21,7 +21,9 @@ using namespace std;
 IScene* SceneManager::currentScene = nullptr;
 
  //Constructor inicializado
-SceneManager::SceneManager() {}
+SceneManager::SceneManager() {
+	// Cuando se crea el objeto se deben ejecutar ciertas acciones
+}
 
 // Implementacion de metodo publico para establecer la escena actual
 void SceneManager::setScene(IScene* scene) {
@@ -29,9 +31,7 @@ void SceneManager::setScene(IScene* scene) {
 		std::cout << "[WARNING] Unloading scene: " << currentScene << std::endl;
 		currentScene->clean(); // Limpia la escena anterior
 		delete currentScene; // Libera la memoria de la escena anterior
-	 }
-	std::cout << "[INFO] Loading scene successfully: " << currentScene << std::endl;
-
+	}
 	currentScene = scene;
 	currentScene->init(); // Inicializa la escena actual qeu se va a mostrar, es decir se ejecuta el metodo init de la escena en (IScene.h) y se incializa la escena
 	std::cout << "[INFO] Unloading scene finished successfully: " << currentScene << std::endl;

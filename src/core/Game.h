@@ -5,6 +5,9 @@
 #include "Score.h"
 #include "GameState.h"
 #include "../utils/Label.h"
+#include "../core/LevelManager.h"
+
+#include <memory>
 
 /**
  * @class Game
@@ -27,16 +30,23 @@ private:
     Paddle* player; // Jugador Paddle (creado con puntero para mayor eficiencia)
 
     Ball* ball; //Declaracion de la bola mediante punteros para mayor eficiencia
+    std::vector<shared_ptr<Ball>> balls;
 
     // Conectamos la logica del Score con la clase principal Game
     Score* score;
     // Se conecta la logica de Label para mostrar el [Label] objeto en la ventana
 	Label* label;
+
     // Se conecta la logica de Timer para usar propiedades y metodos del temporizador
     Timer* timer;
 
+    // Declaramos una propieadad [levelManager], el cual sera el contenedor de todos los valores del archivo de configuracion, que se pasaron
+    // desde GameScene a esta clase. Se comparte el estado de los niveles entre todas las instancias de Game
+    std::shared_ptr<LevelManager> levelManager;
+
     // Conectamos el sistema de menu con el juego principal
     GameState currentState;
+
 
 public:
     Game(); // constructor
@@ -51,4 +61,15 @@ public:
     // Metodos para controlar el estado de todo el juego (setters y getters) para el estado del juego
     GameState getState() const { return currentState; }
     void setGameState(GameState state) { currentState = state; } 
+
+    // Los metodos getters and setters seran usados para manejar la propiedad [levelManager] y cambiar dinamicamente el estado de los niveles
+    // Setter para la propiedad [levelManager]
+    void setLevelManager(std::shared_ptr<LevelManager> manager);
+
+	// Getter para la propiedad [levelManager]
+    std::shared_ptr<LevelManager> getLevelManager() const;
+
+    // Se declara un metodo para poder agregar nuevas pelotas al juego segun el jugador cambie de nivel de juego
+    void addBallForCurrentLevel(const LevelData& level);
+
 };
